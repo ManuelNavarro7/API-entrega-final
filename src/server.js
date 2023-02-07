@@ -4,7 +4,7 @@ import productosRouter from "./Routes/routesProductos.js";
 import loginRouter from "./Routes/routesLogin.js";
 import carritosRouter from "./Routes/routesCarritos.js";
 import facturacionRouter from "./Routes/routesFacturacion.js"
-
+import cookiesession from "cookie-session"
 //IO
 import { Server as HttpServer } from "http";
 import { Server as Socket } from "socket.io";
@@ -81,7 +81,7 @@ app.use(express.static("public"));
 const TIEMPO_EXPIRACION = 100000;
 
 app.use(
-  session({
+  cookiesession({
     secret: "secret",
     resave: false,
     saveUninitialized: false,
