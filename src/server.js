@@ -1,11 +1,10 @@
-import express, { application } from "express";
+import express from "express";
 import cors from "cors"
 import productosRouter from "./Routes/routesProductos.js";
 import loginRouter from "./Routes/routesLogin.js";
 import carritosRouter from "./Routes/routesCarritos.js";
 import facturacionRouter from "./Routes/routesFacturacion.js"
-import cookiesession from "cookie-session"
-import cookieParser from "cookie-parser";
+
 //IO
 import { Server as HttpServer } from "http";
 import { Server as Socket } from "socket.io";
@@ -43,7 +42,7 @@ function SwitchPath() {
       return path.resolve(__dirname, "develope.env");
     case "develope":
       return path.resolve(__dirname, "develope.env");
-    case "production":
+    case "prod":
       return path.resolve(__dirname, "prod.env");
     case "fork":
       return path.resolve(__dirname, "develope.env");
@@ -64,12 +63,11 @@ dotenv.config({
 //Passport initialize & User for
 const app = express();
 const httpServer = new HttpServer(app);
-const io = new Socket(httpServer);
-// const io = new Socket(httpServer,{
-//   cors:{
-//     origin:"http://localhost:3000"
-//   }
-// });
+const io = new Socket(httpServer,{
+  cors:{
+    origin:"http://localhost:3000"
+  }
+});
 
 app.use(cors( {
   credentials: true,
@@ -83,7 +81,7 @@ app.use(express.static("public"));
 const TIEMPO_EXPIRACION = 100000;
 
 app.use(
-  cookiesession({
+  session({
     secret: "secret",
     resave: false,
     saveUninitialized: false,
@@ -95,7 +93,6 @@ app.use(
 );
 
 app.use(passport.initialize());
-app.use(cookieParser())
 
 //Para inicializar session con la utilidad de passport
 app.use(passport.session());
