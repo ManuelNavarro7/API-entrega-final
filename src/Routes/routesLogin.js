@@ -135,7 +135,7 @@ loginRouter.post(
     failureRedirect: "nne",
   }),
   async (req, res) => {
-    const { user } = req;
+    const { user } = req.session.user;
     console.log(user)
     try {
       const mailOptions = {
@@ -169,7 +169,7 @@ loginRouter.post(
 );
 
 loginRouter.get("/ruta-protegida", checkAuthentication, (req, res) => {
-  const { user } = req.user;
+  const { user } = req.session.user;
   console.log(user)
   logger.info(user);
   logger.error("Parámetros incorrectos");
