@@ -5,7 +5,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "production": "MODO=production node ./src/main.js -p 8080"
+    "production": "npm --omit=dev MODO=production node ./src/main.js -p 8080"
   },
   "keywords": [],
   "author": "",
