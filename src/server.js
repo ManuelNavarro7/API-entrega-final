@@ -16,7 +16,8 @@ import config from "./config.js";
 
 
 //-------------------------- DOT ENV
-
+import cookieSession from "cookie-session";
+import cookieParser from "cookie-parser";
 
 //Session
 
@@ -76,12 +77,12 @@ app.use(cors( {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
+app.use(cookieParser())
 
 const TIEMPO_EXPIRACION = 100000;
 
 app.use(
-  session({
+  cookieSession({
     secret: "secret",
     resave: true,
     saveUninitialized: true,

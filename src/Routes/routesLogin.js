@@ -11,6 +11,7 @@ import User from "../../scripts/mongooseSchema.js";
 
 //Passport
 
+
 import passport from "passport";
 
 //Strategy & Conection to database usuarios
@@ -135,7 +136,7 @@ loginRouter.post(
     failureRedirect: "nne",
   }),
   async (req, res) => {
-    console.log(JSON.stringify(req.session))
+    console.log(req.session)
     const user  = req.session.passport.user;
     console.log(user)
     try {
