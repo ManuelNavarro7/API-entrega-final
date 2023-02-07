@@ -5,7 +5,8 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "prod": "MODO=prod node ./src/main.js -p 8080"
+    "develope": "MODO=develope node ./src/main.js -p 8080"
+    
   },
   "keywords": [],
   "author": "",
