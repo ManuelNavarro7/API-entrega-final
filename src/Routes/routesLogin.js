@@ -136,7 +136,7 @@ loginRouter.post(
   }),
   async (req, res) => {
     console.log(JSON.stringify(req.session))
-    const user  = req.session.cookie.passport.user;
+    const user  = req.session.passport.user;
     console.log(user)
     try {
       const mailOptions = {
