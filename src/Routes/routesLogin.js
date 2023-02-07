@@ -91,7 +91,7 @@ passport.use(
 passport.use(
   "login",
   new LocalStrategy((username, password, done) => {
-    console.log("@@@@@@@@2"+username, password);
+    
     User.findOne({ username }, (err, user) => {
       if (err) {
         return done(err);
@@ -129,8 +129,8 @@ function createHash(password) {
 
 function isValidaPassword(user, password) {
 
-  console.log(user)
-  console.log(password)
+  console.log("$$$$$$$$"+user)
+  console.log("$$$$$$$$"+password)
   return bCrypt.compareSync(password, user.password);
 }
 const loginRouter = new Router();
