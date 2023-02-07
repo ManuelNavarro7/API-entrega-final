@@ -135,7 +135,7 @@ loginRouter.post(
     failureRedirect: "nne",
   }),
   async (req, res) => {
-    console.log("hereeee"+req.session)
+    console.log("hereeee"+JSON.stringify(req.session))
     const { user } = req;
     console.log(user)
     try {
@@ -164,7 +164,7 @@ loginRouter.post(
       "https://developer.mozilla.org/es/docs/Web/CSS/transform-function/translate",
   }),
   (req, res) => {
-    logger.error("Not authenticated");
+    logger.info("authenticated");
     res.send({ message: "Is authenticated" });
   }
 );
