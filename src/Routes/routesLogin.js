@@ -135,7 +135,7 @@ loginRouter.post(
     failureRedirect: "nne",
   }),
   async (req, res) => {
-    console.log("hereeee"+req)
+    console.log("hereeee"+req.session)
     const { user } = req;
     console.log(user)
     try {
