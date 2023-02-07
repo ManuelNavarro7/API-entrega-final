@@ -42,7 +42,7 @@ function SwitchPath() {
       return path.resolve(__dirname, "develope.env");
     case "develope":
       return path.resolve(__dirname, "develope.env");
-    case "prod":
+    case "production":
       return path.resolve(__dirname, "prod.env");
     case "fork":
       return path.resolve(__dirname, "develope.env");
