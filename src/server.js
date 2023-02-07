@@ -1,10 +1,11 @@
-import express from "express";
+import express, { application } from "express";
 import cors from "cors"
 import productosRouter from "./Routes/routesProductos.js";
 import loginRouter from "./Routes/routesLogin.js";
 import carritosRouter from "./Routes/routesCarritos.js";
 import facturacionRouter from "./Routes/routesFacturacion.js"
 import cookiesession from "cookie-session"
+import cookieParser from "cookie-parser";
 //IO
 import { Server as HttpServer } from "http";
 import { Server as Socket } from "socket.io";
@@ -63,11 +64,12 @@ dotenv.config({
 //Passport initialize & User for
 const app = express();
 const httpServer = new HttpServer(app);
-const io = new Socket(httpServer,{
-  cors:{
-    origin:"http://localhost:3000"
-  }
-});
+const io = new Socket(httpServer);
+// const io = new Socket(httpServer,{
+//   cors:{
+//     origin:"http://localhost:3000"
+//   }
+// });
 
 app.use(cors( {
   credentials: true,
@@ -93,6 +95,7 @@ app.use(
 );
 
 app.use(passport.initialize());
+app.use(cookieParser())
 
 //Para inicializar session con la utilidad de passport
 app.use(passport.session());
