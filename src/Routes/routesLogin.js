@@ -135,7 +135,7 @@ loginRouter.post(
     failureRedirect: "nne",
   }),
   async (req, res) => {
-    console.log(JSON.stringify(req))
+    console.log(JSON.stringify(req.session))
     const user  = req.session.cookie.passport.user;
     console.log(user)
     try {
