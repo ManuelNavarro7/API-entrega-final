@@ -85,7 +85,7 @@ app.use(
     secret: "secret",
     resave: true,
     saveUninitialized: true,
-    store: new MongoStore({ url: "mongodb+srv://Manuel:Coder32065@cluster0.i1f4ini.mongodb.net/Users", autoReconnect: true }),
+    
     rolling: true,
     cookie: {
       maxAge: TIEMPO_EXPIRACION,
