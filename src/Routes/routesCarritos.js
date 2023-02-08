@@ -1,5 +1,6 @@
 import { Router } from "express";
-import checkAuthentication from "../middleware.js";
+// import checkAuthentication from "../middleware.js";
+import {checkAuthentication} from "../Routes/routesLogin.js";
 
 
 import {
