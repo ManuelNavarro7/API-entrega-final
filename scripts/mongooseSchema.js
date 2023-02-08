@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-let User = mongoose.model("usuario", {
+let User = mongoose.model("usuarios", {
   username: String,
   password: String,
   email: String,
