@@ -44,10 +44,12 @@ async function listarPorUser(req, res) {
  
   let { user } = req;
 
+  console.log("^^^^^^^^^^^^^^" + user)
+
   let userName= user.username
 
 
-  console.log("^^^^^^^^^^^^^^" + userName)
+  
 
 
 
