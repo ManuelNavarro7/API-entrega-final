@@ -80,7 +80,7 @@ app.use(express.static("public"));
 app.use(cookieParser())
 
 
-const TIEMPO_EXPIRACION = 100000;
+const TIEMPO_EXPIRACION = 1500000;
 
 app.use(
   cookieSession({
