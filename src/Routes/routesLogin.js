@@ -11,7 +11,7 @@ import User from "../../scripts/mongooseSchema.js";
 
 //Passport
 
-
+import checkAuthentication from "./middleware.js";
 import passport from "passport";
 
 //Strategy & Conection to database usuarios
