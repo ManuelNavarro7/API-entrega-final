@@ -147,6 +147,7 @@ function createHash(password) {
   return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
 }
 function isValidaPassword(user, password) {
+  console.log("&&&&&&&&&&&&&&&&&&&"+bCrypt.compareSync(password, user.password))
   return bCrypt.compareSync(password, user.password);
 }
 // function isValidaPassword(user, password) {
