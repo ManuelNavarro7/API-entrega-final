@@ -212,7 +212,7 @@ loginRouter.post(
 );
 
 loginRouter.get("/ruta-protegida", checkAuthentication, (req, res) => {
-  const { user } = req.user;
+  const { user } = req;
   console.log(user)
   logger.info(user);
   logger.error("Parámetros incorrectos");
