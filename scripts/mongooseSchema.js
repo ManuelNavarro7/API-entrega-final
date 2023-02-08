@@ -1,11 +1,35 @@
-import mongoose from "mongoose";
 
-let User = mongoose.model("usuario", {
+import mongoose from "mongoose";
+import config from "../src/config.js";
+
+mongoose.connect(config.mongodb.cnxStr, config.mongodb.options);
+
+const UserSchema = {
   username: String,
   password: String,
   email: String,
   firstName: String,
   lastName: String,
-});
+};
 
+const UserModel = mongoose.model("Users", UserSchema);
+
+class UsuariosMongoDb {
+  constructor(nombreColeccion, esquema) {
+    this.coleccion = UserModel;
+  }
+}
+
+let User = new UsuariosMongoDb("usuarios",UserSchema)
 export default User;
+
+
+
+
+
+
+
+
+
+
+
