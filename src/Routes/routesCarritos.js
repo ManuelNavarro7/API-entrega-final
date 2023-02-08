@@ -2,7 +2,7 @@ import { Router } from "express";
 // import checkAuthentication from "../middleware.js";
 
 function checkAuthentication(req, res, next) {
-  console.log("kkkkkkkkkkk"+req);
+  console.log("kkkkkkkkkkk"+JSON.stringify(req));
   if (req.isAuthenticated()) {
     next();
   } else {
