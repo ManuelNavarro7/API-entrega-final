@@ -55,12 +55,12 @@ const transporter = createTransport({
 // //Para inicializar session con la utilidad de passport
 // app.use(passport.session());
 //Passport work
-UserModel.create(newUser, (err, userWithId) => {
-  if (err) {
-    return done(err);
-  }
-  return done(null, userWithId);
-});
+// UserModel.create(newUser, (err, userWithId) => {
+//   if (err) {
+//     return done(err);
+//   }
+//   return done(null, userWithId);
+// });
 
 passport.use(
   "signup",
@@ -84,7 +84,7 @@ passport.use(
           lastName: req.body.lastName,
         };
 
-        User.create(newUser, (err, userWithId) => {
+        UserModel.create(newUser, (err, userWithId) => {
           if (err) {
             return done(err);
           }
@@ -98,7 +98,7 @@ passport.use(
 passport.use(
   "login",
   new LocalStrategy((username, password, done) => {
-    User.findOne({ username }, (err, user) => {
+    UserModel.findOne({ username }, (err, user) => {
       if (err) {
         return done(err);
       }
