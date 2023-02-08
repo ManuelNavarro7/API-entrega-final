@@ -33,7 +33,7 @@ const transporter = createTransport({
 
 // permisos de administrador
 
-//---------Authenticacion de usuario y pass-----------------------------
+//---------Authenticacion de usuario y pass-------------------------
 // const app = express();
 
 // const TIEMPO_EXPIRACION = 60000;
