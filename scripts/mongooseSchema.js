@@ -12,15 +12,15 @@ const UserSchema = {
   lastName: String,
 };
 
-const UserModel = mongoose.model("Users", UserSchema);
+const User = mongoose.model("Users", UserSchema);
 
-class UsuariosMongoDb {
-  constructor(nombreColeccion, esquema) {
-    this.coleccion = UserModel;
-  }
-}
+// class UsuariosMongoDb {
+//   constructor(nombreColeccion, esquema) {
+//     this.coleccion = UserModel;
+//   }
+// }
 
-let User = new UsuariosMongoDb("usuarios",UserSchema)
+// let User = new UsuariosMongoDb("usuarios",UserSchema)
 export default User;
 
 
