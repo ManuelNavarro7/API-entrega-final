@@ -1,18 +1,31 @@
-
 import mongoose from "mongoose";
-import config from "../src/config.js";
 
-mongoose.connect(config.mongodb.cnxStr, config.mongodb.options);
-
-const UserSchema = {
+let User = mongoose.model("usuario", {
   username: String,
   password: String,
   email: String,
   firstName: String,
   lastName: String,
-};
+});
 
-const User = mongoose.model("usuarios", UserSchema);
+export default User;
+
+// import mongoose from "mongoose";
+// import config from "../src/config.js";
+
+// mongoose.connect(config.mongodb.cnxStr, config.mongodb.options);
+
+// const UserSchema = {
+//   username: String,
+//   password: String,
+//   email: String,
+//   firstName: String,
+//   lastName: String,
+// };
+
+// const User = mongoose.model("usuario", UserSchema);
+// export default User;
+
 
 // class UsuariosMongoDb {
 //   constructor(nombreColeccion, esquema) {
@@ -21,7 +34,7 @@ const User = mongoose.model("usuarios", UserSchema);
 // }
 
 // let User = new UsuariosMongoDb("usuarios",UserSchema)
-export default User;
+
 
 
 
