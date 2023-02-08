@@ -55,6 +55,13 @@ const transporter = createTransport({
 // //Para inicializar session con la utilidad de passport
 // app.use(passport.session());
 //Passport work
+UserModel.create(newUser, (err, userWithId) => {
+  if (err) {
+    return done(err);
+  }
+  return done(null, userWithId);
+});
+
 passport.use(
   "signup",
   new LocalStrategy(
@@ -62,7 +69,7 @@ passport.use(
       passReqToCallback: true,
     },
     (req, username, password, done) => {
-      User.findOne({ username: username }, (err, user) => {
+      UserModel.findOne({ username: username }, (err, user) => {
         if (err) {
           return done(err);
         }
