@@ -91,9 +91,27 @@ passport.use(
 passport.use(
   "login",
   new LocalStrategy((username, password, done) => {
+    console.log("%%%%%%%%"+  User.findOne({ username }, (err, user) => {
+     
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        
+        return done(null, false);
+      }
+      if (!user) {
+        return done(null, false);
+      }
+      if (!isValidaPassword(user, password)) {
+        return done(null, false);
+      }
+
+      return done(null, user);
+    }));
     
     User.findOne({ username }, (err, user) => {
-      console.log("%%%%%%%%"+user);
+     
       if (err) {
         return done(err);
       }
