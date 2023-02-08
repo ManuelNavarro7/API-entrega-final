@@ -70,10 +70,7 @@ const io = new Socket(httpServer,{
   }
 });
 
-app.use(cors( {
-  credentials: true,
-  origin: true,
-}));
+app.use(cors({origin: '*'}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
