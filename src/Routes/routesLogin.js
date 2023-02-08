@@ -124,7 +124,7 @@ passport.use(
         return done(null, false);
       }
       if (isValidaPassword(user, password)) {
-        console.log("AAAAAAAAAAAAACccCCCCCCAAAAA")
+        
         return done(null, user);
       } else {
         return done(null, false);
