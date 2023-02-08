@@ -1,6 +1,6 @@
 import express from "express";
 import { Router } from "express";
-// import checkAuthentication from "../middleware.js";
+import checkAuthentication from "../middleware.js";
 import { getAll } from "../controller/LoginControler.js";
 import logger from "../logger/logger.js";
 // Bcrypt // Tiempo de expiracion
@@ -162,7 +162,6 @@ function checkAuthentication(req, res, next) {
     res.send({ message: "Not authenticated" });
   }
 }
-
 // function isValidaPassword(user, password) {
 
 //   console.log("$$$$$$$$"+user)
@@ -212,7 +211,7 @@ loginRouter.post(
 );
 
 loginRouter.get("/ruta-protegida", checkAuthentication, (req, res) => {
-  const { user } = req;
+  const { user } = req.user;
   console.log(user)
   logger.info(user);
   logger.error("Parámetros incorrectos");
