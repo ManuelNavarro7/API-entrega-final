@@ -21,7 +21,7 @@ import {
 const carritosRouter = new Router();
 
 carritosRouter.get("/", checkAuthentication, getAll);
-carritosRouter.get("/userid", listarPorUser);
+carritosRouter.get("/userid", checkAuthentication, listarPorUser);
 carritosRouter.get("/:id/productos", listarUsuarioCarrito);
 carritosRouter.post("/agregarcarrito", checkAuthentication, AgregarCarrito);
 carritosRouter.post("/:id/productos", CargarProdCarrito);
