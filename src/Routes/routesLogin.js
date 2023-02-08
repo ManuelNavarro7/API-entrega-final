@@ -93,11 +93,12 @@ passport.use(
   new LocalStrategy((username, password, done) => {
     
     User.findOne({ username }, (err, user) => {
+      console.log("%%%%%%%%"+user);
       if (err) {
         return done(err);
       }
       if (!user) {
-        console.log(username, password);
+        
         return done(null, false);
       }
       if (!user) {
