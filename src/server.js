@@ -71,7 +71,7 @@ const io = new Socket(httpServer,{
 });
 
 app.use(cors( {
-  origin: "https://front-p-final.vercel.app/",
+  origin: "https://front-p-final.vercel.app",
     methods: "GET, POST, PUT",
 }));
 app.use(express.json());
