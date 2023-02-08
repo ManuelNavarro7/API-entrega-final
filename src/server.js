@@ -112,7 +112,7 @@ app.use("/api/facturacion", facturacionRouter);
 io.on("connection",async (socket)=> {
  
 
-  
+  console.log("nuevo cliente conectado")
   
   async function Main() {
     const leerMensajes1 = await leerMensajes()

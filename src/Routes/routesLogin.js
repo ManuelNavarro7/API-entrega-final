@@ -11,7 +11,7 @@ import User from "../../scripts/mongooseSchema.js";
 
 //Passport
 
-import checkAuthentication from "../middleware.js";
+// import checkAuthentication from "../middleware.js";
 import passport from "passport";
 
 //Strategy & Conection to database usuarios
@@ -31,6 +31,15 @@ const transporter = createTransport({
   },
 });
 
+function checkAuthentication(req, res, next) {
+  
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    logger.error("Parámetros incorrectos");
+    res.send({ message: "Not authenticated" });
+  }
+}
 // permisos de administrador
 
 //---------Authenticacion de usuario y pass-----------------------------
