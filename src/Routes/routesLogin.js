@@ -192,15 +192,7 @@ loginRouter.get("/logout", (req, res) => {
     else res.send({ status: "Logout ERROR", body: err });
   });
 });
-function checkAuthentication(req, res, next) {
-  
-  if (req.isAuthenticated()) {
-    next();
-  } else {
-    logger.error("Parámetros incorrectos");
-    res.send({ message: "Not authenticated" });
-  }
-}
 
-export {checkAuthentication}
+
+
 export default loginRouter;

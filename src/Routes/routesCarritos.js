@@ -1,6 +1,6 @@
 import { Router } from "express";
-// import checkAuthentication from "../middleware.js";
-import {checkAuthentication} from "../Routes/routesLogin.js";
+import checkAuthentication from "../middleware.js";
+
 
 
 import {
@@ -22,30 +22,19 @@ import {
 // const carritosRouter = new Router();
 const carritosRouter = new Router();
 
-carritosRouter.get("/", getAll);
-carritosRouter.get("/userid", listarPorUser);
+
+
+carritosRouter.get("/", checkAuthentication, getAll);
+carritosRouter.get("/userid", checkAuthentication, listarPorUser);
 carritosRouter.get("/:id/productos", listarUsuarioCarrito);
-carritosRouter.post("/agregarcarrito", AgregarCarrito);
+carritosRouter.post("/agregarcarrito", checkAuthentication, AgregarCarrito);
 carritosRouter.post("/:id/productos", CargarProdCarrito);
 carritosRouter.post("/:id/productos/cart", CargarProdCarritoStore);
-carritosRouter.post("/:id/facturacion", FacturacionCarrito);
+carritosRouter.post("/:id/facturacion", checkAuthentication, FacturacionCarrito);
 
 carritosRouter.delete("/:id/productos/cart/:idProd", BorrarProdStore);
 carritosRouter.delete("/:id/productos/:idProd", BorrarPorIdProdEnCarrito);
 carritosRouter.delete("/:id", BorrarPorId);
 carritosRouter.delete("/", BorrarTodo);
-
-// carritosRouter.get("/", checkAuthentication, getAll);
-// carritosRouter.get("/userid", checkAuthentication, listarPorUser);
-// carritosRouter.get("/:id/productos", listarUsuarioCarrito);
-// carritosRouter.post("/agregarcarrito", checkAuthentication, AgregarCarrito);
-// carritosRouter.post("/:id/productos", CargarProdCarrito);
-// carritosRouter.post("/:id/productos/cart", CargarProdCarritoStore);
-// carritosRouter.post("/:id/facturacion", checkAuthentication, FacturacionCarrito);
-
-// carritosRouter.delete("/:id/productos/cart/:idProd", BorrarProdStore);
-// carritosRouter.delete("/:id/productos/:idProd", BorrarPorIdProdEnCarrito);
-// carritosRouter.delete("/:id", BorrarPorId);
-// carritosRouter.delete("/", BorrarTodo);
 
 export default carritosRouter;
