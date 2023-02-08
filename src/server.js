@@ -70,14 +70,14 @@ const io = new Socket(httpServer,{
   }
 });
 
-
-app.use(cors({
-  origin: 'https://front-p-final.vercel.app'
+app.use(cors( {
+  credentials: true,
+  origin: true,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(cookieParser("secret"))
+
 
 
 const TIEMPO_EXPIRACION = 1500000;
@@ -93,7 +93,7 @@ app.use(
     },
   })
 );
-
+app.use(cookieParser("secret"))
 app.use(passport.initialize());
 
 //Para inicializar session con la utilidad de passport
@@ -113,7 +113,7 @@ app.use("/api/facturacion", facturacionRouter);
 
 
 io.on("connection",async (socket)=> {
-  console.log("Un cliente se ha conectado");
+ 
 
   
   

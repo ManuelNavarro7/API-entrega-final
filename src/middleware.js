@@ -4,7 +4,7 @@ export default function checkAuthentication(req, res, next) {
   console.log("kkkkkkkkkkk"+req.isAuthenticated() );
   if (req.isAuthenticated()) {
 
-    console.log("Horacioooooooooo")
+    
     next();
   } else {
     logger.error("Parámetros incorrectos");
