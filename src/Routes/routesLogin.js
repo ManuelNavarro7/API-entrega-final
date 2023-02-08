@@ -1,6 +1,6 @@
 import express from "express";
 import { Router } from "express";
-import checkAuthentication from "../middleware.js";
+// import checkAuthentication from "../middleware.js";
 import { getAll } from "../controller/LoginControler.js";
 import logger from "../logger/logger.js";
 // Bcrypt // Tiempo de expiracion
@@ -162,6 +162,7 @@ function checkAuthentication(req, res, next) {
     res.send({ message: "Not authenticated" });
   }
 }
+
 // function isValidaPassword(user, password) {
 
 //   console.log("$$$$$$$$"+user)
