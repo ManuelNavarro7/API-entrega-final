@@ -33,7 +33,7 @@ const transporter = createTransport({
 
 // permisos de administrador
 
-//---------Authenticacion de usuario y pass-------------------------
+//---------Authenticacion de usuario y pass-----------------------------
 // const app = express();
 
 // const TIEMPO_EXPIRACION = 60000;
@@ -88,47 +88,21 @@ passport.use(
   )
 );
 
-// passport.use(
-//   "login",
-//   new LocalStrategy((username, password, done) => {
-    
-//     User.findOne({ username }, (err, user) => {
-//       console.log("%%%%%%%%"+user);
-//       if (err) {
-//         return done(err);
-//       }
-//       if (!user) {
-        
-//         return done(null, false);
-//       }
-//       if (!user) {
-//         return done(null, false);
-//       }
-//       if (!isValidaPassword(user, password)) {
-//         return done(null, false);
-//       }
-
-//       return done(null, user);
-//     });
-//   })
-// );
 passport.use(
   "login",
   new LocalStrategy((username, password, done) => {
     User.findOne({ username }, (err, user) => {
-      console.log("%%%%%%%%"+user);
       if (err) {
         return done(err);
       }
       if (!user) {
         return done(null, false);
       }
-      if (isValidaPassword(user, password)) {
-        
-        return done(null, user);
-      } else {
+      if (!isValidaPassword(user, password)) {
         return done(null, false);
       }
+
+      return done(null, user);
     });
   })
 );
@@ -147,17 +121,13 @@ passport.deserializeUser((id, done) => {
 function createHash(password) {
   return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
 }
+
 function isValidaPassword(user, password) {
-  
+
+  console.log(user)
+  console.log(password)
   return bCrypt.compareSync(password, user.password);
 }
-
-// function isValidaPassword(user, password) {
-
-//   console.log("$$$$$$$$"+user)
-//   console.log("$$$$$$$$"+password)
-//   return bCrypt.compareSync(password, user.password);
-// }
 const loginRouter = new Router();
 
 loginRouter.post(
