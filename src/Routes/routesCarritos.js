@@ -1,15 +1,6 @@
 import { Router } from "express";
-// import checkAuthentication from "../middleware.js";
+import checkAuthentication from "../middleware.js";
 
-function checkAuthentication(req, res, next) {
-  console.log("kkkkkkkkkkk"+JSON.stringify(req));
-  if (req.isAuthenticated()) {
-    next();
-  } else {
-    // logger.error("Parámetros incorrectos");
-    res.send({ message: "Not authenticated" });
-  }
-}
 
 import {
   getAll,
