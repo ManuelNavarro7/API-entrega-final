@@ -12,7 +12,7 @@ const UserSchema = {
   lastName: String,
 };
 
-const User = mongoose.model("Users", UserSchema);
+const User = mongoose.model("usuarios", UserSchema);
 
 // class UsuariosMongoDb {
 //   constructor(nombreColeccion, esquema) {
