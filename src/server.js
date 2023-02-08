@@ -66,7 +66,7 @@ const app = express();
 const httpServer = new HttpServer(app);
 const io = new Socket(httpServer,{
   cors:{
-    origin:"https://front-p-final.vercel.app"
+    origin: '*'
   }
 });
 
