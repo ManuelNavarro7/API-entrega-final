@@ -97,6 +97,10 @@ passport.use(
         return done(err);
       }
       if (!user) {
+        console.log(username, password);
+        return done(null, false);
+      }
+      if (!user) {
         return done(null, false);
       }
       if (!isValidaPassword(user, password)) {
