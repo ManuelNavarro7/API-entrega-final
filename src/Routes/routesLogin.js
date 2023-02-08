@@ -150,6 +150,18 @@ function isValidaPassword(user, password) {
   
   return bCrypt.compareSync(password, user.password);
 }
+
+function checkAuthentication(req, res, next) {
+  console.log("kkkkkkkkkkk"+req.isAuthenticated() );
+  if (req.isAuthenticated()) {
+
+    
+    next();
+  } else {
+    logger.error("Parámetros incorrectos");
+    res.send({ message: "Not authenticated" });
+  }
+}
 // function isValidaPassword(user, password) {
 
 //   console.log("$$$$$$$$"+user)
