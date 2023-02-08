@@ -83,7 +83,7 @@ app.use(cookieParser())
 const TIEMPO_EXPIRACION = 100000;
 
 app.use(
-  session({
+  cookieSession({
     secret: "secret",
     resave: false,
     saveUninitialized: false,
