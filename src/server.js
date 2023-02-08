@@ -79,14 +79,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser())
 
+
 const TIEMPO_EXPIRACION = 100000;
 
 app.use(
-  cookieSession({
+  session({
     secret: "secret",
-    resave: true,
-    saveUninitialized: true,
-    
+    resave: false,
+    saveUninitialized: false,
     rolling: true,
     cookie: {
       maxAge: TIEMPO_EXPIRACION,
