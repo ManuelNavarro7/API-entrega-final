@@ -4,7 +4,7 @@ import productosRouter from "./Routes/routesProductos.js";
 import loginRouter from "./Routes/routesLogin.js";
 import carritosRouter from "./Routes/routesCarritos.js";
 import facturacionRouter from "./Routes/routesFacturacion.js"
-
+import checkAuthentication from "./middleware.js";
 //IO
 import { Server as HttpServer } from "http";
 import { Server as Socket } from "socket.io";
