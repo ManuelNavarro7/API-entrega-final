@@ -301,15 +301,18 @@ passport.use(
     console.log(username,password)
     User.findOne({ username }, (err, user) => {
       if (err) {
+        console.log("1")
         return done(err);
       }
       if (!user) {
+        console.log("2")
         return done(null, false);
       }
       if (!isValidaPassword(user, password)) {
+        console.log("3")
         return done(null, false);
       }
-
+      console.log("4")
       return done(null, user);
     });
   })
