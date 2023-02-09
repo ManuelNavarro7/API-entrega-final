@@ -312,10 +312,6 @@ passport.use(
         console.log("3")
         return done(null, false);
       }
-      if (!user.isActive) {
-        console.log("4")
-        return done(null, false);
-      }
       console.log("5")
       return done(null, user);
     });
