@@ -298,6 +298,7 @@ passport.use(
 passport.use(
   "login",
   new LocalStrategy((username, password, done) => {
+    console.log(username,password)
     User.findOne({ username }, (err, user) => {
       if (err) {
         return done(err);
@@ -371,7 +372,7 @@ loginRouter.post(
       "https://developer.mozilla.org/es/docs/Web/CSS/transform-function/translate",
   }),
   (req, res) => {
-    logger.error("Not authenticated");
+    logger.error("------------Not authenticated");
     res.send({ message: "Is authenticated" });
   }
 );
