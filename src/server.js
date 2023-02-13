@@ -214,8 +214,7 @@ const io = new Socket(httpServer,{
 });
 
 app.use(cors( {
-  origin: "https://front-p-final.vercel.app/",
-  credentials: true
+  origin: "https://front-p-final.vercel.app/"
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
