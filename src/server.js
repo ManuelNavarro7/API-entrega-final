@@ -208,14 +208,10 @@ dotenv.config({
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new Socket(httpServer,{
-  cors:{
-    origin:"https://front-p-final.vercel.app/"
-  }
+  cors: true
 });
 
-app.use(cors( {
-  origin: "https://front-p-final.vercel.app/"
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
