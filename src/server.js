@@ -209,12 +209,12 @@ const app = express();
 const httpServer = new HttpServer(app);
 const io = new Socket(httpServer,{
   cors:{
-    origin:"http://localhost:3000"
+    origin:"https://front-p-final.vercel.app/"
   }
 });
 
 app.use(cors( {
-  origin: "http://localhost:3000",
+  origin: "https://front-p-final.vercel.app/",
   credentials: true
 }));
 app.use(express.json());
