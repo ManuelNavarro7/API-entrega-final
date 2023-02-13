@@ -220,27 +220,40 @@ app.use(cors( {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(cookieParser())
 
-const TIEMPO_EXPIRACION = 1000000;
+//JWT
 
-app.use(
-  cookieSession({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true,
+
+
+
+
+
+
+
+
+
+
+// app.use(cookieParser())
+
+// const TIEMPO_EXPIRACION = 1000000;
+
+// app.use(
+//   cookieSession({
+//     secret: "secret",
+//     resave: true,
+//     saveUninitialized: true,
     
-    rolling: true,
-    cookie: {
-      maxAge: TIEMPO_EXPIRACION,
-    },
-  })
-);
+//     rolling: true,
+//     cookie: {
+//       maxAge: TIEMPO_EXPIRACION,
+//     },
+//   })
+// );
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 //Para inicializar session con la utilidad de passport
-app.use(passport.session());
+// app.use(passport.session());
 
 app.use("/api/session", loginRouter);
 

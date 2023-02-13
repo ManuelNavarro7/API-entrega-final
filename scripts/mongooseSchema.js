@@ -1,14 +1,26 @@
 import mongoose from "mongoose";
 
-let User = mongoose.model("usuario", {
-  username: String,
-  password: String,
-  email: String,
-  firstName: String,
-  lastName: String,
-});
 
-export default User;
+const UserJWT= new mongoose.Schema({
+  username:{ type: String, required: true },
+  password:{ type: String, required: true },
+  email:{ type: String, required: true },
+  firstName:{ type: String, required: true } ,
+  lastName:{ type: String, required: true } ,
+
+})
+
+export default UserJWT
+
+// let User = mongoose.model("usuario", {
+//   username: String,
+//   password: String,
+//   email: String,
+//   firstName: String,
+//   lastName: String,
+// });
+
+// export default User;
 
 // import mongoose from "mongoose";
 // import config from "../src/config.js";
