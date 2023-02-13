@@ -252,7 +252,7 @@ app.use(express.static("public"));
 
 // app.use(passport.initialize());
 
-//Para inicializar session con la utilidad de passport
+//Para inicializar session con la utilidad de
 // app.use(passport.session());
 
 app.use("/api/session", loginRouter);
