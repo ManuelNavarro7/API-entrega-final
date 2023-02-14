@@ -18,7 +18,7 @@ export const FacturacionSchema = new mongoose.Schema({
   productos: { type: Array },
   idCart: { type: String },
   total:{type:Number},
-  date:{type:Date}
+  date:{type:String}
 });
 
 export const MensajeSchema = new mongoose.Schema({

@@ -44,12 +44,12 @@ async function listarPorUser(req, res) {
  
   let { user } = req;
 
-  console.log("Hereeeee")
-  console.log(req)
+  
+  
 
   let userName= user.username
 
-
+  
   
 
 
@@ -91,7 +91,9 @@ async function CargarProdCarritoStore(req, res) {
   const { id } = req.params;
   
   let idproducto = req.body.id;
- 
+
+  console.log(id)
+  console.log(idproducto)
   let productoXID = await productosDaoM.listarId(idproducto);
  
   const IdString = JSON.stringify( idproducto);
