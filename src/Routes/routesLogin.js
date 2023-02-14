@@ -77,7 +77,8 @@ loginRouter.post("/login",async (req, res) => {
   try{
     const { nombre, password } = req.body;
 
-  const usuario = await jwtUsersCollection.findOne({nombre:nombre, password:password},{password:false});
+  // const usuario = await jwtUsersCollection.findOne({nombre:nombre, password:password},{password:false});
+  const usuario = await jwtUsersCollection.find({$and: [{nombre: nombre}, {password: password}]}, {password: 0});
   if (!usuario) {
     return res.json({ error: "credenciales invalidas" });
   }
